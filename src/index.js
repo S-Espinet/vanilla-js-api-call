@@ -23,7 +23,9 @@ $(document).ready(function() {
 
    function getElements(response) {
       $('.showHumidity').text(`The humidity in ${city} is ${response.main.humidity}%`);
-      $('.showTemp').text(`The temperature in Kelvins is ${response.main.temp} degrees.`);
+      $('.showTemp').text(`The temperature in Fahrenheit is ${(response.main.temp-273)*1.8+32} degrees.`);
+      $('.showVisibility').text(`The visibility is ${response.visibility} feet.`);
+      $('.showWindSpeed').text(`The wind speed is ${response.wind.speed} mph.`);
     }
   });
 });
