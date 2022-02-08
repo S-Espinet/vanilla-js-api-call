@@ -50,8 +50,9 @@ $(document).ready(function() {
     request2.send();
 
     function getForecast(response) {
-      for (i=0; i<response.list.length; i++) {
-        $('.showForecast').text(`The 5-day forecast in ${city} is ${response.list[i].main.temp}`)
+      $('.showForecast').text(`The 5-day forecast in ${city} is:`);
+      for (let i=4; i<40; i=i+8) {
+        $('.showForecast').append('<li>' + `${Math.round((response.list[i].main.temp-273)*1.8+32)}` + '</li>');
       }
     }
   });
